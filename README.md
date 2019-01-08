@@ -75,7 +75,7 @@ Keep to include following -
 	16.3. `addNote()` to persist the new note created with server and update the `notes` and `notesSubject` of the service  
 		INPUT - Note  
 		URL - `http://localhost:3000/api/v1/notes`  
-		METHOD - `POST`  
+		METHOD - `POST`  npm run e2e
 		RETURN TYPE - `Observable<Note>`  
 	16.4. `editNote()` to persist the updated note with server and update the `notes` and `notesSubject` of the service  
 		INPUT - Note  

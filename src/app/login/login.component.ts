@@ -19,6 +19,7 @@ export class LoginComponent {
   ngOnInit() {
   }
   loginSubmit() {
+
     this._authService.authenticateUser({'username' : this.username.value, 'password' : this.password.value})
     .subscribe ( res => {
   if ( res ) {
@@ -35,12 +36,11 @@ export class LoginComponent {
       }
   });
   }
-  get_User_Error_Message() {
-    return this.username.hasError('required') ? 'You must Enter a user name' :
-            ' ';
+  get_username_error(){
+    return this.username.hasError('required') ? 'username is required' : '';
   }
-  get_password_Error_Message() {
-    return this.password.hasError('required') ? 'You must Enter the password' :
-            ' ';
+
+  get_password_error(){
+    return this.password.hasError('required') ? 'password is required' : '';
   }
 }

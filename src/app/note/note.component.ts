@@ -1,26 +1,22 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Note } from  '../note';
 import { RouterService } from '../services/router.service';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
-export class NoteComponent {
-@Input()
-noteData:Array<Note>;
-@Input()
-note:Note;
+export class NoteComponent implements OnInit {
 
-constructor(private routerService : RouterService) { }
+  @Input() note: Note;
+  constructor(private routerService : RouterService) { }
 
-ngOnInit(){
-  console.log("noteData"+this.noteData);
-}
-OpenEditNoteView(note){
-  this.routerService.routeToEditNoteView(this.note.id);
- 
-}
+  ngOnInit() {
+
+  }
+  
+  OpenEditNoteView(){
+    this.routerService.routeToEditNoteView(this.note.id);
+  }
 }

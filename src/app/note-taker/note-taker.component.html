@@ -1,25 +1,24 @@
-
 <!-- Label to display any error messages -->
-<label class="error-message">{{ errMessage }}</label>
+<label class="error-message">{{ errorMessage }}</label>
 
 <!-- Expansion panel to add new notes -->
-<!-- <div class="add-note-section"> -->
-    <mat-expansion-panel class="customPanel">
-      <mat-expansion-panel-header>
-        <mat-panel-title>Take a note</mat-panel-title>
-      </mat-expansion-panel-header>
-    
-  
-      <mat-form-field class="mat-input">
-        <input matInput placeholder="title" name ="title" [(ngModel)]="note.title">
-      </mat-form-field>
-    
-      <mat-form-field class="mat-input">
-        <textarea matInput placeholder="text" name ="text" [(ngModel)]="note.text"></textarea>
-      </mat-form-field>
-    
-      <div class="mat-input">
-        <button mat-button (click)="addNote()">Done</button>
-      </div>
-    </mat-expansion-panel>
-  <!-- </div> -->
+<div class="keep-comp-note-taker-pannel">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+              This is my Note
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="keep-comp-note-taker-wapper">
+            <mat-form-field>
+                <input [(ngModel)] = 'note.title'  matInput placeholder="Title" type = 'text'>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea [(ngModel)] = 'note.text' matInput placeholder="Text"></textarea>
+            </mat-form-field>
+            <div class="keep-comp-button">
+                <button mat-button (click) = 'takeNote()'>Click me!</button><!-- () => event binding-->
+             </div>
+        </div>
+      </mat-expansion-panel>
+</div> 

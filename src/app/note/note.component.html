@@ -1,6 +1,6 @@
-<mat-card class = 'keep-c-note' (click) = 'OpenEditNoteView(noteDatas)' *ngFor="let noteDatas of noteData">
-    <mat-card-title>{{noteDatas.title}}</mat-card-title>
+<mat-card class = 'keep-c-note' (click) = 'OpenEditNoteView()'>
+  <mat-card-title>{{note.title}}</mat-card-title>
   <mat-card-content>
-    <p>{{noteDatas.text}}</p>
+    <p>{{note.text}}</p>
   </mat-card-content>
 </mat-card>

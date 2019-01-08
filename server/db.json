@@ -2,19 +2,19 @@
   "notes": [
     {
       "id": 1,
-      "title": "Read Angular5 blog",
+      "title": "Read Angular5",
       "text": "Shall do at 6 pm",
-      "state": "not-started"
+      "state": "completed"
     },
     {
       "id": 2,
       "title": "Call Ravi",
-      "text": "Track the new submissions",
+      "text": "Track it",
       "state": "started"
     },
     {
       "title": "Capitalism",
-      "text": "Mark Twain",
+      "text": "Mark",
       "id": 3,
       "state": "completed"
     },
@@ -27,8 +27,32 @@
     {
       "title": "Hi",
       "text": "How are you",
-      "state": "not-started",
+      "state": "started",
       "id": 5
-    }    
+    },
+    {
+      "title": "Meeting ",
+      "text": "Schedule Meeting",
+      "state": "not-started",
+      "id": 6
+    },
+    {
+      "title": "Hi123",
+      "text": "hhelllo",
+      "state": "not-started",
+      "id": 7
+    },
+    {
+      "title": "",
+      "text": "",
+      "state": "not-started",
+      "id": 8
+    },
+    {
+      "title": "admin",
+      "text": "Im Admin",
+      "state": "not-started",
+      "id": 9
+    }
   ]
 }

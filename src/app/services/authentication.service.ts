@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient , HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationService {
 
-  constructor(private httpClient: HttpClient) {
-
-  }
+  constructor(private httpClient: HttpClient) { }
 
   authenticateUser(data) {
     return this.httpClient.post('http://localhost:3000/auth/v1', data);
@@ -23,9 +21,10 @@ export class AuthenticationService {
   }
 
   isUserAuthenticated(token): Promise<boolean> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
     return this.httpClient.post('http://localhost:3000/auth/v1/isAuthenticated', {}, {
-       headers: new HttpHeaders()
-       .set('Authorization', `Bearer ${token}`)
-     }).pipe(map((res) => res['isAuthenticated'])).toPromise();
+      headers : headers
+    }).pipe(map((res) => res['isAuthenticated'])).toPromise();
   }
 }

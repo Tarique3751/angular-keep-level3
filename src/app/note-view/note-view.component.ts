@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Note } from  '../note';
+import { Component,OnInit } from '@angular/core';
+import { Note } from '../note';
 import { NotesService } from '../services/notes.service';
 
 @Component({
@@ -7,25 +7,23 @@ import { NotesService } from '../services/notes.service';
   templateUrl: './note-view.component.html',
   styleUrls: ['./note-view.component.css']
 })
-export class NoteViewComponent {
+export class NoteViewComponent implements OnInit {
+  errMessage: string;
+  notes: Array<Note> = [];
 
-  notes: Array<Note>;
-  errorMessage : string;
-  constructor(private noteService : NotesService) {
+  constructor(private notesService: NotesService) {
     this.notes = [];
-   }
+  }
 
-  ngOnInit() {
-    console.log('loading notes ');
-    this.noteService.getNotes().subscribe(
+  ngOnInit(){
+    this.notesService.getNotes().subscribe(
       notesResponseList => {
-        this.notes = notesResponseList;  
-        console.log("this.notes"+this.notes);
+        this.notes = notesResponseList; 
       },
       error => {
-        this.errorMessage = 'Some internal Error'
+        this.errMessage = 'Some internal Error'
       }
     );
-    
   }
+
 }

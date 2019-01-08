@@ -1,6 +1,5 @@
 <div class="keep-c-note-container">
   
-<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
-<!-- <app-note [noteData]="notes" ></app-note> -->
-<app-note [noteData] = "notes" *ngFor = 'let note of notes'></app-note> 
+	<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
+	<app-note [note] = "note" *ngFor = 'let note of notes'></app-note>
 </div>
