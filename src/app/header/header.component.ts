@@ -13,13 +13,12 @@ export class HeaderComponent {
   }
 
   switchView() {
-    const currentUrl = window.location.href;
-    if(currentUrl.indexOf('noteview') > -1) {
-      this.isNoteView = false;
-      this.routerService.routeToListView();
-    } else {
-      this.isNoteView = true;
+    this.isNoteView = !this.isNoteView;
+
+    if (this.isNoteView) {
       this.routerService.routeToNoteView();
+    } else {
+      this.routerService.routeToListView();
     }
   }
 }

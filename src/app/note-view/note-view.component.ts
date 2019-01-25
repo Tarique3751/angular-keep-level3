@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Note } from '../note';
 import { NotesService } from '../services/notes.service';
 
@@ -15,15 +15,16 @@ export class NoteViewComponent implements OnInit {
     this.notes = [];
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.notesService.getNotes().subscribe(
       notesResponseList => {
-        this.notes = notesResponseList; 
+        this.notes = notesResponseList;
       },
       error => {
-        this.errMessage = 'Some internal Error'
+        this.errMessage = 'Some internal Error';
       }
     );
   }
 
 }
+

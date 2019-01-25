@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from './../services/notes.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DashboardComponent implements OnInit {
-  
-  constructor() { }
 
-  ngOnInit(){
-   
+  constructor(private notesSerivce: NotesService) {
+    notesSerivce.fetchNotesFromServer();
+   }
+
+  ngOnInit() {
+
   }
 }

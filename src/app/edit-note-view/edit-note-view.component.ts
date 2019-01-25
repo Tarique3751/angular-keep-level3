@@ -1,4 +1,4 @@
-import { Component,Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { NotesService } from '../services/notes.service';
 import { RouterService } from '../services/router.service';
@@ -14,12 +14,12 @@ export class EditNoteViewComponent implements OnInit {
   states: Array<string> = ['not-started', 'started', 'completed'];
   errMessage: string;
 
-  constructor(private matDialogRef : MatDialogRef<EditNoteViewComponent>,
-              @Inject(MAT_DIALOG_DATA) public data : any,
-              private noteService: NotesService, private routerService: RouterService){
+  constructor(private matDialogRef: MatDialogRef<EditNoteViewComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private noteService: NotesService, private routerService: RouterService) {
   }
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.note = this.noteService.getNoteById(this.data.note);
   }
 

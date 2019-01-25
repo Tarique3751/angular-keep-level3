@@ -8,39 +8,36 @@ import { RouterService } from '../services/router.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
-  username = new FormControl('', [ Validators.required ]);
-  password = new FormControl('', [ Validators.required] );
-  submitMessage = ' ';
-  public bearerToken: any;
-  constructor(private _authService: AuthenticationService,
-              private routerService: RouterService) { }
+    username = new FormControl('', [ Validators.required ]);
+    password = new FormControl('', [ Validators.required ]);
 
-  ngOnInit() {
-  }
-  loginSubmit() {
+    public bearerToken: any;
+    submitMessage = '';
 
-    this._authService.authenticateUser({'username' : this.username.value, 'password' : this.password.value})
-    .subscribe ( res => {
-  if ( res ) {
-      this.bearerToken = res['token'];
-      this._authService.setBearerToken(this.bearerToken);
-      this.routerService.routeToDashboard();
+    constructor(private authservice: AuthenticationService, private routerService: RouterService) { }
+
+    loginSubmit() {
+      const requestParams = {
+        'username' : this.username.value,
+        'password' : this.password.value
+      };
+
+      this.authservice.authenticateUser(requestParams).subscribe( res => {
+        this.bearerToken = res['token'];
+        this.authservice.setBearerToken(this.bearerToken);
+        this.routerService.routeToDashboard();
+      }, err => {
+        this.submitMessage = err.error ? err.error.message : err.message;
+      });
     }
-    },
-    err => {
-    if (err.status === 403) {
-        this.submitMessage = 'Unauthorized';
-      }else {
-        this.submitMessage = 'Http failure response for http://localhost:3000/auth/v1: 404 Not Found';
-      }
-  });
-  }
-  get_username_error(){
-    return this.username.hasError('required') ? 'username is required' : '';
-  }
 
-  get_password_error(){
-    return this.password.hasError('required') ? 'password is required' : '';
-  }
+    get_username_error() {
+      return this.username.hasError('required') ? 'username is required' : '';
+    }
+
+    get_password_error() {
+      return this.password.hasError('required') ? 'password is required' : '';
+    }
 }

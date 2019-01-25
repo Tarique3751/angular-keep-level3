@@ -25,7 +25,7 @@ import { RouterService } from './services/router.service';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { NoteComponent } from './note/note.component';
 import { NoteTakerComponent } from './note-taker/note-taker.component';
-import { ListViewComponent } from './list-view/list-view.component'; 
+import { ListViewComponent } from './list-view/list-view.component';
 import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
 import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
 
@@ -36,7 +36,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo : 'dashboard',pathMatch : 'full'
+    redirectTo : 'dashboard', pathMatch : 'full'
   },
   {
     path: 'dashboard',
@@ -47,7 +47,7 @@ const appRoutes: Routes = [
       {path : 'view/noteview', component : NoteViewComponent},
       {path : 'view/listview', component : ListViewComponent},
       {path : 'view/editview', component : EditNoteOpenerComponent},
-      {path : 'note/:noteId/edit', component: EditNoteOpenerComponent , outlet:'noteEditOutlet'}
+      {path : 'note/:noteId/edit', component: EditNoteOpenerComponent , outlet: 'noteEditOutlet'}
     ]
   }
 ];

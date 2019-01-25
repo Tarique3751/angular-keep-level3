@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -9,7 +8,7 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) { }
 
   authenticateUser(data) {
-    return this.httpClient.post('http://localhost:3000/auth/v1', data);
+    return this.httpClient.post('http://localhost:3000/auth/v1/', data);
   }
 
   setBearerToken(token) {

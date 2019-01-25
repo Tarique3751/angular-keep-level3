@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Note } from  '../note';
+import { Note } from '../note';
 import { RouterService } from '../services/router.service';
 
 @Component({
@@ -10,13 +10,13 @@ import { RouterService } from '../services/router.service';
 export class NoteComponent implements OnInit {
 
   @Input() note: Note;
-  constructor(private routerService : RouterService) { }
+  constructor(private routerService: RouterService) { }
 
   ngOnInit() {
 
   }
-  
-  OpenEditNoteView(){
+
+  OpenEditNoteView() {
     this.routerService.routeToEditNoteView(this.note.id);
   }
 }

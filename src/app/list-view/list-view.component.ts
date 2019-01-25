@@ -16,25 +16,25 @@ export class ListViewComponent implements OnInit {
   constructor(private notesService: NotesService) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.notesService.getNotes().subscribe(
       notesResponseList => {
         this.notStartedNotes = [];
         this.startedNotes = [];
         this.completedNotes = [];
-        
+
         notesResponseList.forEach(note => {
-          if(note.state === 'started') {
+          if (note.state === 'started') {
             this.startedNotes.push(note);
-          } else if(note.state === 'not-started') {
+          } else if (note.state === 'not-started') {
             this.notStartedNotes.push(note);
-          } else if(note.state === 'completed') {
+          } else if (note.state === 'completed') {
             this.completedNotes.push(note);
           }
         });
       },
       error => {
-        
+
       }
     );
   }
